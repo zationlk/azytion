@@ -1,0 +1,19 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48">
+  <!-- Azytion — dark mode logo (white on transparent) -->
+  <!-- A mark with upward arrow notch -->
+  <path d="M2 44 L16 6 L22 6 L36 44 H30 L26 33 H12 L8 44 Z M14 27 H24 L19 13 Z" fill="white"/>
+  <!-- Inner dark triangle (arrow notch) -->
+  <path d="M16 26 L19 16 L22 26 Z" fill="#060912"/>
+  <!-- Z -->
+  <path d="M41 10 H57 V15 L46 38 H57 V44 H41 V39 L52 16 H41 Z" fill="white"/>
+  <!-- Y -->
+  <path d="M61 10 L68 24 L75 10 H81 L72 28 V44 H65 V28 L56 10 Z" fill="white"/>
+  <!-- T -->
+  <path d="M84 10 H104 V16 H97 V44 H91 V16 H84 Z" fill="white"/>
+  <!-- I -->
+  <rect x="107" y="10" width="6" height="34" fill="white"/>
+  <!-- O -->
+  <path d="M118 27 C118 18 122 9 131 9 C140 9 144 18 144 27 C144 36 140 45 131 45 C122 45 118 36 118 27 Z M124 27 C124 33 127 39 131 39 C135 39 138 33 138 27 C138 21 135 15 131 15 C127 15 124 21 124 27 Z" fill="white"/>
+  <!-- N -->
+  <path d="M148 10 H154 V36 L164 10 H170 V44 H164 V18 L154 44 H148 Z" fill="white"/>
+</svg>
