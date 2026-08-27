@@ -9,8 +9,22 @@ export const brand = {
   address: "Kandy, Sri Lanka",
   address2: "Kurunegala, Sri Lanka",
   whatsapp: "https://wa.me/94723344070",
+  whatsapp2: "https://wa.me/94755331445",
   url: "https://azytion.com",
 } as const;
+
+export const whatsappNumbers = [
+  {
+    number: "+94 72 3344 070",
+    link: "https://wa.me/94723344070",
+    label: "Primary Contact / General Inquiries",
+  },
+  {
+    number: "+94 75 533 1445",
+    link: "https://wa.me/94755331445",
+    label: "Sales & Technical Support",
+  },
+] as const;
 
 export const navLinks = [
   { href: "/", label: "Home" },
@@ -29,12 +43,11 @@ export const stats = [
 ] as const;
 
 export const clients = [
-  "TechCorp",
-  "InnovateLab",
-  "GlobalRetail",
-  "EduStream",
-  "MediCare+",
-  "FinEdge",
+  "OCEAN LIGHTING SOLUTIONS",
+  "USGEMS",
+  "NEW ROCK CITY",
+  "ZUHARA",
+  "ROYAL PROPERTY",
 ] as const;
 
 export const services = [
@@ -113,7 +126,7 @@ export const services = [
     id: "saas",
     title: "SaaS Products",
     description:
-      "Ready-to-deploy business systems — POS, ERP, CRM, LMS, and more — available instantly.",
+      "Ready-to-deploy business systems - POS, ERP, CRM, LMS, and more - available instantly.",
     features: [
       "Instant Deployment",
       "Cloud Hosting Included",
@@ -315,28 +328,16 @@ export const values = [
 
 export const team = [
   {
-    name: "Muhammad Ali",
-    role: "CEO & Founder",
-    bio: "Visionary leader with 10+ years in tech, driving Azytion's mission forward.",
-    initials: "MA",
+    name: "Yousuf Mahdoom",
+    role: "Co-Founder",
+    bio: "Co-Founder of Azytion, driving strategic operations, business expansion, and digital solution delivery.",
+    initials: "YM",
   },
   {
-    name: "Sara Khan",
-    role: "Lead Developer",
-    bio: "Full-stack expert specializing in scalable architecture and cloud solutions.",
-    initials: "SK",
-  },
-  {
-    name: "James Rodriguez",
-    role: "Creative Director",
-    bio: "Award-winning designer crafting visual experiences that captivate and convert.",
-    initials: "JR",
-  },
-  {
-    name: "Emily Park",
-    role: "Marketing Head",
-    bio: "Digital marketing strategist with a track record of 3x ROI for clients.",
-    initials: "EP",
+    name: "Zaidh Usman",
+    role: "Co-Founder",
+    bio: "Co-Founder of Azytion, leading technology vision, software engineering, and SaaS product architecture.",
+    initials: "ZU",
   },
 ] as const;
 

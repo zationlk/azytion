@@ -3,7 +3,7 @@
  * Each variant uses different shapes/animations to avoid repetition.
  */
 
-/** Variant A — spinning 8-point star + dashed circle (original) */
+/** Variant A - spinning 8-point star + dashed circle (original) */
 export function DecoratorsA({ color = "rgba(1,48,162," }: { color?: string }) {
   return (
     <>
@@ -22,7 +22,7 @@ export function DecoratorsA({ color = "rgba(1,48,162," }: { color?: string }) {
   );
 }
 
-/** Variant B — floating diamonds + cross shape */
+/** Variant B - floating diamonds + cross shape */
 export function DecoratorsB() {
   return (
     <>
@@ -49,7 +49,7 @@ export function DecoratorsB() {
   );
 }
 
-/** Variant C — hexagon grid dots + triangle */
+/** Variant C - hexagon grid dots + triangle */
 export function DecoratorsC() {
   return (
     <>
@@ -78,7 +78,7 @@ export function DecoratorsC() {
   );
 }
 
-/** Variant D — concentric rings + floating square */
+/** Variant D - concentric rings + floating square */
 export function DecoratorsD() {
   return (
     <>
@@ -101,7 +101,7 @@ export function DecoratorsD() {
   );
 }
 
-/** Variant E — wave line + scattered dots */
+/** Variant E - wave line + scattered dots */
 export function DecoratorsE() {
   return (
     <>
@@ -130,7 +130,7 @@ export function DecoratorsE() {
   );
 }
 
-/** Variant F — plus signs + rounded square */
+/** Variant F - plus signs + rounded square */
 export function DecoratorsF() {
   return (
     <>

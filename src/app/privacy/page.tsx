@@ -5,7 +5,7 @@ import { brand } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: `Privacy Policy for ${brand.name} — how we collect, use, and protect your information.`,
+  description: `Privacy Policy for ${brand.name} - how we collect, use, and protect your information.`,
 };
 
 const sections = [

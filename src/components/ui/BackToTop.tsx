@@ -5,13 +5,37 @@ import { ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function BackToTop() {
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400);
+    let ticking = false;
+
+    const updateScrollProgress = () => {
+      const y = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? Math.min((y / docHeight) * 100, 100) : 0;
+      setScrollProgress(progress);
+      setVisible(y > 100);
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollProgress);
+        ticking = true;
+      }
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
+    updateScrollProgress();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Circle progress calculation (r=20, circumference = 2 * PI * 20 ≈ 125.66)
+  const radius = 20;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference - (scrollProgress / 100) * circumference;
 
   return (
     <button
@@ -19,20 +43,39 @@ export function BackToTop() {
       aria-label="Scroll to top"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className={cn(
-        // Sits directly above WhatsApp button (WhatsApp at bottom-6 h-14 = 56px, gap 8px → bottom = 6+56/16+0.5rem ≈ bottom-[5.5rem])
-        "fixed bottom-[5.5rem] right-6 z-50",
-        "flex h-11 w-11 items-center justify-center rounded-xl",
-        "border border-border bg-card-bg text-text-secondary",
-        "shadow-[0_4px_16px_rgba(0,0,0,0.1)]",
-        "transition-all duration-300",
-        "hover:border-blue/40 hover:bg-blue hover:text-white hover:shadow-[0_6px_20px_rgba(1,48,162,0.4)]",
-        "dark:border-white/10 dark:bg-bg-muted dark:hover:border-blue-light/40 dark:hover:bg-blue",
-        visible
-          ? "translate-y-0 opacity-100"
-          : "translate-y-4 opacity-0 pointer-events-none",
+        "fixed bottom-6 right-6 z-[99]",
+        "group flex h-12 w-12 items-center justify-center rounded-full",
+        "bg-card-bg text-text-primary shadow-2xl border border-border dark:border-white/10",
+        "transition-all duration-300 hover:scale-110 hover:border-blue/40",
+        "active:scale-95",
+        visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0 pointer-events-none"
       )}
     >
-      <ArrowUp size={16} />
+      {/* SVG Progress Ring */}
+      <svg className="absolute inset-0 h-full w-full -rotate-90 pointer-events-none" viewBox="0 0 48 48">
+        {/* Track circle */}
+        <circle
+          cx="24"
+          cy="24"
+          r={radius}
+          className="stroke-border/60 dark:stroke-white/10 fill-none"
+          strokeWidth="3"
+        />
+        {/* Animated active progress ring */}
+        <circle
+          cx="24"
+          cy="24"
+          r={radius}
+          className="stroke-blue dark:stroke-blue-light fill-none transition-[stroke-dashoffset] duration-150"
+          strokeWidth="3"
+          strokeDasharray={circumference}
+          strokeDashoffset={strokeDashoffset}
+          strokeLinecap="round"
+        />
+      </svg>
+
+      {/* Arrow Icon */}
+      <ArrowUp size={18} className="relative z-10 text-blue dark:text-blue-light transition-transform group-hover:-translate-y-0.5" />
     </button>
   );
 }

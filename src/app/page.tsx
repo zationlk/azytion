@@ -8,13 +8,16 @@ import {
   TrendingUp,
   Users2,
 } from "lucide-react";
+import { AboutImage } from "@/components/ui/AboutImage";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { ProjectEstimator } from "@/components/ui/ProjectEstimator";
 import { CTABanner } from "@/components/sections/CTA";
 import { Hero } from "@/components/sections/Hero";
 import { ProductsGrid } from "@/components/sections/ProductsGrid";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { StatsBar } from "@/components/sections/StatsBar";
+import { TechStackMatrix } from "@/components/sections/TechStackMatrix";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
@@ -51,7 +54,7 @@ export default function HomePage() {
             <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-gradient-to-l from-bg-subtle to-transparent" />
             <div className="flex animate-marquee gap-12 whitespace-nowrap">
               {[...clients, ...clients].map((client, i) => (
-                <span key={`${client}-${i}`} className="font-[family-name:var(--font-jakarta)] text-[1.0625rem] font-bold text-text-muted/40">
+                <span key={`${client}-${i}`} className="font-[family-name:var(--font-jakarta)] text-sm font-extrabold uppercase tracking-wider text-text-secondary/85 dark:text-text-secondary">
                   {client}
                 </span>
               ))}
@@ -59,21 +62,29 @@ export default function HomePage() {
           </div>
           {/* Desktop */}
           <FadeIn>
-            <div className="hidden flex-wrap items-center justify-center gap-x-12 gap-y-3 md:flex">
-              {clients.map((client) => (
-                <span key={client} className="font-[family-name:var(--font-jakarta)] text-[1.0625rem] font-bold text-text-muted/40 transition-all duration-200 hover:text-text-muted">
-                  {client}
-                </span>
+            <div className="hidden flex-wrap items-center justify-center gap-4 md:flex">
+              {clients.map((client, index) => (
+                <div key={client} className="flex items-center gap-4">
+                  <span className="rounded-full border border-card-border bg-card-bg/60 px-5 py-2 font-[family-name:var(--font-jakarta)] text-xs lg:text-sm font-extrabold uppercase tracking-wider text-text-primary shadow-sm backdrop-blur-sm transition-all duration-200 hover:border-blue/30 hover:text-blue hover:scale-105 dark:border-white/10 dark:hover:border-blue-light/30 dark:hover:text-blue-light">
+                    {client}
+                  </span>
+                  {index < clients.length - 1 && (
+                    <span className="h-4 w-px bg-border/80 dark:bg-white/10" />
+                  )}
+                </div>
               ))}
             </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* ── Services — uses DecoratorsB (diamonds + cross) ──────── */}
+      {/* ── Services - uses DecoratorsB (diamonds + cross) ──────── */}
       <ServicesGrid />
 
-      {/* ── About — uses DecoratorsA (star + dashed circle) ─────── */}
+      {/* ── Tech Stack Matrix ────── */}
+      <TechStackMatrix />
+
+      {/* ── About - uses DecoratorsA (star + dashed circle) ─────── */}
       <section className="relative overflow-hidden bg-bg-subtle py-28">
         <DecoratorsA />
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
@@ -82,20 +93,12 @@ export default function HomePage() {
             {/* Visual */}
             <FadeIn>
               <div className="relative">
-                <div className="absolute -inset-4 rounded-[32px] bg-gradient-to-br from-blue/10 via-transparent to-blue-light/8 blur-2xl" />
-                <div className="relative overflow-hidden rounded-[24px] bg-gradient-to-br from-blue-dark via-[#0a2580] to-blue p-px shadow-[0_24px_64px_rgba(1,48,162,0.22)]">
-                  <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[23px] bg-gradient-to-br from-blue-dark to-blue">
-                    <div className="pointer-events-none absolute inset-0 opacity-[0.09]"
-                      style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,1) 1px, transparent 1px)", backgroundSize: "22px 22px" }} />
-                    <div className="absolute h-56 w-56 rounded-full bg-white/8 blur-3xl" />
-                    <span className="relative font-[family-name:var(--font-jakarta)] text-7xl font-black tracking-tight text-white/8 select-none md:text-8xl">AZYTION</span>
-                  </div>
-                </div>
-                <div className="absolute -bottom-5 -right-3 rounded-2xl border border-card-border bg-card-bg px-6 py-4 text-center shadow-[0_12px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+                <AboutImage />
+                <div className="absolute -bottom-5 -right-3 rounded-2xl border border-card-border bg-card-bg px-6 py-4 text-center shadow-[0_12px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.5)] z-10">
                   <strong className="block font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-blue dark:text-blue-light">5+</strong>
                   <span className="text-[0.78rem] text-text-muted">Years of Excellence</span>
                 </div>
-                <div className="absolute -left-4 top-8 rounded-2xl border border-card-border bg-card-bg px-4 py-3 shadow-[0_12px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+                <div className="absolute -left-4 top-8 rounded-2xl border border-card-border bg-card-bg px-4 py-3 shadow-[0_12px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.5)] z-10">
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue/8 dark:bg-blue/12">
                       <Users2 size={17} className="text-blue dark:text-blue-light" />
@@ -106,7 +109,7 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute -right-3 bottom-16 hidden animate-float-slow items-center gap-2.5 rounded-2xl border border-card-border bg-card-bg px-4 py-3 shadow-lg dark:shadow-black/50 lg:flex">
+                <div className="absolute -right-3 bottom-16 hidden animate-float-slow items-center gap-2.5 rounded-2xl border border-card-border bg-card-bg px-4 py-3 shadow-lg dark:shadow-black/50 lg:flex z-10">
                   <MessageSquareQuote size={15} className="text-blue dark:text-blue-light" />
                   <span className="text-[0.78rem] font-semibold text-text-primary">5-star rated</span>
                 </div>
@@ -123,7 +126,7 @@ export default function HomePage() {
                 At Azytion, we believe every business deserves the best digital tools to thrive. Our team combines creativity with technical excellence to deliver solutions that exceed expectations.
               </p>
               <p className="mb-8 text-[0.9375rem] leading-relaxed text-text-secondary">
-                Whether you need a custom application, a stunning website, or a ready-to-use SaaS platform — we are <strong className="font-semibold text-text-primary">The Best Option</strong> for turning your vision into reality.
+                Whether you need a custom application, a stunning website, or a ready-to-use SaaS platform - we are <strong className="font-semibold text-text-primary">The Best Option</strong> for turning your vision into reality.
               </p>
               <div className="mb-8 grid grid-cols-2 gap-3">
                 {whyUs.map(({ icon: Icon, title, desc }) => (
@@ -147,7 +150,7 @@ export default function HomePage() {
       {/* ── Products ───────────────────────────────────────────── */}
       <ProductsGrid limit={3} showViewAll />
 
-      {/* ── Featured Case Study — uses DecoratorsF (plus signs) ─── */}
+      {/* ── Featured Case Study - uses DecoratorsF (plus signs) ─── */}
       <section className="relative overflow-hidden py-20">
         <DecoratorsF />
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
@@ -177,7 +180,7 @@ export default function HomePage() {
                     <span className="text-gradient">340% Revenue Growth</span>
                   </h2>
                   <p className="mb-8 max-w-xl text-[1rem] leading-relaxed text-text-secondary">
-                    We rebuilt their platform from the ground up — a custom Next.js storefront, integrated ERP, and data-driven UX — all within 8 weeks.
+                    We rebuilt their platform from the ground up - a custom Next.js storefront, integrated ERP, and data-driven UX - all within 8 weeks.
                   </p>
                   <div className="mb-8 grid max-w-md grid-cols-3 gap-4">
                     {[{ value: "340%", label: "Revenue Q1" }, { value: "8 wks", label: "Delivery" }, { value: "2.1s", label: "Load time" }].map((item) => (
@@ -204,7 +207,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Process — uses DecoratorsE (wave + dots) ─────────────── */}
+      {/* ── Process - uses DecoratorsE (wave + dots) ─────────────── */}
       <section className="relative overflow-hidden bg-bg-subtle py-24">
         <DecoratorsE />
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
@@ -215,8 +218,6 @@ export default function HomePage() {
             description="A streamlined four-step approach that ensures quality delivery, every time."
           />
           <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-6 hidden h-px lg:block"
-              style={{ background: "linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent)" }} />
             {processSteps.map((step, index) => (
               <FadeIn key={step.title} delay={index * 0.1}>
                 <div className="group flex flex-col items-center rounded-2xl border border-card-border bg-card-bg p-7 text-center transition-all duration-300 hover:-translate-y-1.5 hover:border-blue/20 hover:shadow-[0_12px_40px_rgba(1,48,162,0.08)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)]">
@@ -234,6 +235,13 @@ export default function HomePage() {
 
       {/* StatsBar uses its own decorators (concentric rings + cross + diamond) */}
       <StatsBar />
+
+      {/* ── Project Estimator Section ────── */}
+      <section className="py-24 bg-bg-subtle border-t border-border">
+        <div className="mx-auto max-w-6xl px-5 lg:px-8">
+          <ProjectEstimator />
+        </div>
+      </section>
 
       {/* Testimonials uses DecoratorsC (triangle + hexagon) */}
       <Testimonials />

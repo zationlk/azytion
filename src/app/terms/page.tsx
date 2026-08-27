@@ -5,7 +5,7 @@ import { brand } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: `Terms of Service for ${brand.name} — the rules and guidelines governing use of our services.`,
+  description: `Terms of Service for ${brand.name} - the rules and guidelines governing use of our services.`,
 };
 
 const sections = [
@@ -32,7 +32,7 @@ const sections = [
   {
     id: "ip",
     title: "Intellectual Property",
-    content: `Upon full payment, clients receive ownership of custom deliverables created specifically for them under a project agreement, unless otherwise specified.\n\n${brand.name} retains ownership of all underlying frameworks, tools, libraries, and pre-existing intellectual property. Our SaaS products are licensed, not sold — clients receive a limited, non-exclusive license to use the software during their subscription period.`,
+    content: `Upon full payment, clients receive ownership of custom deliverables created specifically for them under a project agreement, unless otherwise specified.\n\n${brand.name} retains ownership of all underlying frameworks, tools, libraries, and pre-existing intellectual property. Our SaaS products are licensed, not sold - clients receive a limited, non-exclusive license to use the software during their subscription period.`,
   },
   {
     id: "liability",

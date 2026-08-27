@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Azytion SaaS products — POS, ERP, CRM, LMS, Accounting, Booking systems and more ready-to-use business software.",
+    "Azytion SaaS products - POS, ERP, CRM, LMS, Accounting, Booking systems and more ready-to-use business software.",
 };
 
 // Features comparison at the bottom of pricing cards
@@ -43,9 +43,9 @@ export default function ProductsPage() {
     <>
       <PageHero
         breadcrumb="Products"
-        badge="Deploy in 24–48 Hours"
+        badge="Deploy in 24-48 Hours"
         title={<>SaaS <span className="text-gradient">Products</span></>}
-        description="Ready-to-deploy business systems. No development wait — launch instantly and scale as you grow."
+        description="Ready-to-deploy business systems. No development wait - launch instantly and scale as you grow."
         stats={[
           { value: "9+", label: "Products Available" },
           { value: "24h", label: "Avg. Deploy Time" },

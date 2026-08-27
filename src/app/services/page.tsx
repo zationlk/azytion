@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Check, Clock, DollarSign, Headphones, X, Zap } from "lucide-react";
 import { DynamicIcon } from "@/components/ui/DynamicIcon";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { ProjectEstimator } from "@/components/ui/ProjectEstimator";
 import { CTABanner, PageHero, CardLink } from "@/components/sections/CTA";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { DecoratorsC, DecoratorsE } from "@/components/ui/SectionDecorators";
@@ -9,7 +10,7 @@ import { processSteps, services, technologies } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Azytion services — software development, website design, graphic design, video editing, and digital marketing.",
+  description: "Azytion services - software development, website design, graphic design, video editing, and digital marketing.",
 };
 
 const comparisonRows = [
@@ -19,7 +20,7 @@ const comparisonRows = [
   { feature: "24/7 dedicated support",                      azytion: true,  agency: false, freelancer: false },
   { feature: "SaaS products ready to deploy",               azytion: true,  agency: false, freelancer: false },
   { feature: "Proven track record (150+ projects)",         azytion: true,  agency: true,  freelancer: false },
-  { feature: "Fast turnaround (avg. 2–4 weeks)",            azytion: true,  agency: false, freelancer: true  },
+  { feature: "Fast turnaround (avg. 2-4 weeks)",            azytion: true,  agency: false, freelancer: true  },
   { feature: "Scalable enterprise solutions",               azytion: true,  agency: true,  freelancer: false },
   { feature: "Budget-friendly starter packages",            azytion: true,  agency: false, freelancer: true  },
 ];
@@ -45,7 +46,7 @@ export default function ServicesPage() {
         description="Comprehensive digital solutions designed to elevate your brand, streamline operations, and accelerate growth."
         stats={[
           { value: "6", label: "Core Services" },
-          { value: "2–4wk", label: "Avg. Delivery" },
+          { value: "2-4wk", label: "Avg. Delivery" },
           { value: "150+", label: "Projects Done" },
         ]}
       />
@@ -93,8 +94,8 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Zap, title: "Fast Delivery", desc: "2–12 week timelines depending on scope", color: "text-blue dark:text-blue-light", bg: "bg-blue/8 dark:bg-blue/12" },
-              { icon: DollarSign, title: "Fixed Pricing", desc: "Transparent quotes — no surprises", color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-500/8" },
+              { icon: Zap, title: "Fast Delivery", desc: "2-12 week timelines depending on scope", color: "text-blue dark:text-blue-light", bg: "bg-blue/8 dark:bg-blue/12" },
+              { icon: DollarSign, title: "Fixed Pricing", desc: "Transparent quotes - no surprises", color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-500/8" },
               { icon: Headphones, title: "24/7 Support", desc: "Dedicated post-launch support included", color: "text-violet-600 dark:text-violet-400", bg: "bg-violet-500/8" },
               { icon: Clock, title: "On-Time Always", desc: "99% of projects delivered on schedule", color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-500/8" },
             ].map(({ icon: Icon, title, desc, color, bg }) => (
@@ -267,10 +268,6 @@ export default function ServicesPage() {
             description="Our four-step process ensures every project is delivered on time, on budget, and beyond expectations."
           />
           <div className="relative grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div
-              className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-6 hidden h-px lg:block"
-              style={{ background: "linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent)" }}
-            />
             {processSteps.map((step, index) => (
               <FadeIn key={step.title} delay={index * 0.1}>
                 <div className="group flex flex-col items-center rounded-2xl border border-card-border bg-card-bg p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-blue/20 hover:shadow-md">
@@ -283,6 +280,19 @@ export default function ServicesPage() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Scope & Cost Estimator Tool ── */}
+      <section className="py-24 border-t border-border bg-card-bg">
+        <div className="mx-auto max-w-6xl px-5 lg:px-8">
+          <SectionHeader
+            centered
+            label="Instant Cost Estimator"
+            title={<>Calculate Your <span className="text-gradient">Project Investment</span></>}
+            description="Configure your service requirements below for an instant budget and timeline estimation."
+          />
+          <ProjectEstimator />
         </div>
       </section>
 

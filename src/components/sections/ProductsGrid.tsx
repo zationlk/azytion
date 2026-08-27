@@ -1,8 +1,12 @@
-import { ArrowRight, Clock } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { ArrowRight, Clock, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { DynamicIcon } from "@/components/ui/DynamicIcon";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { DemoProduct, ProductDemoModal } from "@/components/ui/ProductDemoModal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { products } from "@/lib/data";
 
@@ -30,6 +34,7 @@ export function ProductsGrid({
   showHeader?: boolean;
   showViewAll?: boolean;
 }) {
+  const [selectedDemoProduct, setSelectedDemoProduct] = useState<DemoProduct | null>(null);
   const items = limit ? products.slice(0, limit) : products;
 
   return (
@@ -40,7 +45,7 @@ export function ProductsGrid({
             centered
             label="SaaS Products"
             title={<>Ready-to-Use <span className="text-gradient">Business Systems</span></>}
-            description="Deploy powerful software instantly. No development wait — just plug in and scale."
+            description="Deploy powerful software instantly. No development wait - just plug in and scale."
           />
         )}
 
@@ -100,9 +105,19 @@ export function ProductsGrid({
                         Contact Us <ArrowRight size={14} />
                       </Link>
                     ) : (
-                      <Button href="/contact" size="sm" className="w-full">
-                        Request Demo
-                      </Button>
+                      <div className="flex gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setSelectedDemoProduct(product)}
+                          className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl border border-blue/20 bg-blue/8 px-3 py-2 text-xs font-semibold text-blue transition hover:bg-blue hover:text-white dark:border-blue-light/20 dark:bg-blue/12 dark:text-blue-light dark:hover:bg-blue"
+                        >
+                          <Sparkles size={13} />
+                          Live Demo
+                        </button>
+                        <Button href="/contact" size="sm">
+                          Get Demo
+                        </Button>
+                      </div>
                     )}
                   </div>
                 </article>
@@ -120,6 +135,12 @@ export function ProductsGrid({
           </FadeIn>
         )}
       </div>
+
+      {/* Interactive Demo Modal */}
+      <ProductDemoModal
+        product={selectedDemoProduct}
+        onClose={() => setSelectedDemoProduct(null)}
+      />
     </section>
   );
 }

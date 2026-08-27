@@ -22,7 +22,7 @@ export function NewsletterForm() {
     return (
       <div className="flex items-center gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/8 px-4 py-2.5 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
         <CheckCircle2 size={16} />
-        You&apos;re subscribed — thanks!
+        You&apos;re subscribed - thanks!
       </div>
     );
   }

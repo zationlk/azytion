@@ -38,7 +38,7 @@ export function ThemeToggle({ className }: { className?: string }) {
         className,
       )}
     >
-      {/* Sun — shown in dark mode, click to go light */}
+      {/* Sun - shown in dark mode, click to go light */}
       <Sun
         size={15}
         className={cn(
@@ -46,7 +46,7 @@ export function ThemeToggle({ className }: { className?: string }) {
           isDark ? "rotate-0 scale-100 opacity-100" : "rotate-90 scale-0 opacity-0",
         )}
       />
-      {/* Moon — shown in light mode, click to go dark */}
+      {/* Moon - shown in light mode, click to go dark */}
       <Moon
         size={15}
         className={cn(

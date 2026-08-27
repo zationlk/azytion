@@ -12,8 +12,8 @@ export function StatsBar() {
       <div className="pointer-events-none absolute inset-0 opacity-[0.055]"
         style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,1) 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
 
-      {/* ── Diverse decorators — concentric rings + cross + diamond ── */}
-      {/* Concentric rings — top right */}
+      {/* ── Diverse decorators - concentric rings + cross + diamond ── */}
+      {/* Concentric rings - top right */}
       <div className="pointer-events-none absolute -right-16 -top-16 hidden h-56 w-56 animate-scale-pulse opacity-[0.12] lg:block">
         <svg viewBox="0 0 200 200" fill="none">
           <circle cx="100" cy="100" r="90" stroke="white" strokeWidth="1.5" strokeDasharray="8 6"/>
@@ -21,14 +21,14 @@ export function StatsBar() {
           <circle cx="100" cy="100" r="40" stroke="white" strokeWidth="1" strokeDasharray="4 4"/>
         </svg>
       </div>
-      {/* Cross — bottom left */}
+      {/* Cross - bottom left */}
       <div className="pointer-events-none absolute -bottom-6 left-12 hidden h-14 w-14 animate-spin-slow opacity-[0.12] lg:block"
         style={{ animationDuration: "22s" }}>
         <svg viewBox="0 0 56 56" fill="white">
           <path d="M25 0h6v25h25v6H31v25h-6V31H0v-6h25V0z"/>
         </svg>
       </div>
-      {/* Diamond chain — right side */}
+      {/* Diamond chain - right side */}
       <div className="pointer-events-none absolute bottom-4 right-24 hidden animate-bob opacity-[0.1] xl:block">
         <svg viewBox="0 0 24 80" fill="none" width="24" height="80">
           {[10,34,58].map(y => (

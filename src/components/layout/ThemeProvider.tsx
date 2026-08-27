@@ -8,17 +8,14 @@ const ThemeContext = createContext<{
   theme: Theme;
   mounted: boolean;
   toggle: () => void;
-}>({ theme: "light", mounted: false, toggle: () => {} });
+}>({ theme: "dark", mounted: false, toggle: () => {} });
 
 export function useTheme() {
   return useContext(ThemeContext);
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Always start with "light" on both server and client to avoid hydration mismatch.
-  // The blocking script in <head> already set .dark on <html> before paint,
-  // so there is no visible flash even though React state starts as "light".
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

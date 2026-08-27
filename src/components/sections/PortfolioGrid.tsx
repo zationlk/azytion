@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ExternalLink } from "lucide-react";
+import { CaseStudyModal, PortfolioCaseStudy } from "@/components/ui/CaseStudyModal";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { portfolioFilters, portfolioItems } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -20,6 +21,7 @@ const cardThemes = [
 
 export function PortfolioGrid() {
   const [filter, setFilter] = useState("all");
+  const [selectedStudy, setSelectedStudy] = useState<PortfolioCaseStudy | null>(null);
 
   const filtered = filter === "all"
     ? portfolioItems
@@ -46,17 +48,20 @@ export function PortfolioGrid() {
         ))}
       </div>
 
-      {/* Grid — project info always visible */}
+      {/* Grid - project info always visible */}
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {filtered.map((item, index) => {
           const theme = cardThemes[index % cardThemes.length];
           return (
             <FadeIn key={item.title} delay={index * 0.05}>
-              <article className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-card-border bg-card-bg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+              <article
+                onClick={() => setSelectedStudy(item)}
+                className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-card-border bg-card-bg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
+              >
 
                 {/* Image / gradient area */}
                 <div className="relative h-44 overflow-hidden">
-                  {/* Gradient bg — scales slightly on hover */}
+                  {/* Gradient bg - scales slightly on hover */}
                   <div className={cn(
                     "absolute inset-0 bg-gradient-to-br transition-transform duration-500 group-hover:scale-[1.06]",
                     theme.grad,
@@ -71,21 +76,21 @@ export function PortfolioGrid() {
                     <div className="h-14 w-14 rounded-2xl border-2 border-current opacity-[0.07]" />
                   </div>
 
-                  {/* Category chip — top-left */}
+                  {/* Category chip - top-left */}
                   <div className="absolute left-3 top-3 z-10 rounded-full border border-card-border bg-card-bg/85 px-3 py-1 text-[0.72rem] font-semibold text-text-muted backdrop-blur-md">
-                    {item.label.split("·")[0].trim()}
+                    {item.label.split("-")[0].trim()}
                   </div>
 
-                  {/* View button — top-right, always visible */}
-                  <div className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-xl bg-card-bg/85 text-text-secondary backdrop-blur-md transition-all hover:bg-blue hover:text-white">
+                  {/* View button - top-right */}
+                  <div className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-xl bg-card-bg/85 text-text-secondary backdrop-blur-md transition-all group-hover:bg-blue group-hover:text-white">
                     <ExternalLink size={14} />
                   </div>
                 </div>
 
-                {/* Project info — always visible below the image */}
+                {/* Project info */}
                 <div className="flex items-center justify-between gap-3 px-5 py-4">
                   <div className="min-w-0">
-                    <h3 className="truncate font-[family-name:var(--font-jakarta)] text-[0.9375rem] font-bold text-text-primary">
+                    <h3 className="truncate font-[family-name:var(--font-jakarta)] text-[0.9375rem] font-bold text-text-primary group-hover:text-blue dark:group-hover:text-blue-light transition-colors">
                       {item.title}
                     </h3>
                     <p className="mt-0.5 truncate text-[0.8rem] text-text-muted">{item.label}</p>
@@ -100,6 +105,9 @@ export function PortfolioGrid() {
           );
         })}
       </div>
+
+      {/* Case Study Detail Modal */}
+      <CaseStudyModal item={selectedStudy} onClose={() => setSelectedStudy(null)} />
     </>
   );
 }

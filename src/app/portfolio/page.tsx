@@ -8,7 +8,7 @@ import { DecoratorsD, DecoratorsF } from "@/components/ui/SectionDecorators";
 
 export const metadata: Metadata = {
   title: "Portfolio",
-  description: "Explore Azytion's portfolio — web design, software development, branding, and digital marketing projects.",
+  description: "Explore Azytion's portfolio - web design, software development, branding, and digital marketing projects.",
 };
 
 const impactStats = [
@@ -56,7 +56,7 @@ export default function PortfolioPage() {
             centered
             label="Real Results"
             title={<>Impact That <span className="text-gradient">Speaks</span></>}
-            description="Real outcomes from real projects — measurable results that drive business growth."
+            description="Real outcomes from real projects - measurable results that drive business growth."
           />
           <div className="grid gap-5 md:grid-cols-3">
             {impactStats.map((stat, index) => (

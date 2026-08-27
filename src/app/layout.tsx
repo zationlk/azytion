@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { BackToTop } from "@/components/ui/BackToTop";
+import { ToastContainer } from "@/components/ui/Toast";
 import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 import { brand } from "@/lib/data";
 import "./globals.css";
@@ -68,8 +69,8 @@ const jakarta = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(brand.url),
   title: {
-    default: `${brand.name} — ${brand.tagline} | Digital Solutions Company`,
-    template: `%s — ${brand.name}`,
+    default: `${brand.name} - ${brand.tagline} | Digital Solutions Company`,
+    template: `%s - ${brand.name}`,
   },
   description: brand.description,
   keywords: [
@@ -87,12 +88,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: brand.name,
-    title: `${brand.name} — ${brand.tagline}`,
+    title: `${brand.name} - ${brand.tagline}`,
     description: brand.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${brand.name} — ${brand.tagline}`,
+    title: `${brand.name} - ${brand.tagline}`,
     description: brand.description,
   },
   robots: {
@@ -102,7 +103,7 @@ export const metadata: Metadata = {
 };
 
 // ─── Blocking theme script (runs before paint, eliminates flash) ──────────────
-const themeScript = `(function(){try{var s=localStorage.getItem('theme');var p=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';if((s||p)==='dark')document.documentElement.classList.add('dark');}catch(e){}})();`;
+const themeScript = `(function(){try{var s=localStorage.getItem('theme');if(s==='light'){document.documentElement.classList.remove('dark');}else{document.documentElement.classList.add('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`;
 
 // ─── Root layout ─────────────────────────────────────────────────────────────
 
@@ -112,7 +113,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jakarta.variable}`}
+      className={`${inter.variable} ${jakarta.variable} dark`}
       suppressHydrationWarning
     >
       <head>
@@ -125,6 +126,7 @@ export default function RootLayout({
           <Footer />
           <BackToTop />
           <WhatsAppFloat />
+          <ToastContainer />
         </ThemeProvider>
       </body>
     </html>

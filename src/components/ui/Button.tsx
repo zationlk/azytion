@@ -6,22 +6,23 @@ type ButtonSize = "default" | "sm";
 
 const variants: Record<ButtonVariant, string> = {
   primary: [
-    "bg-blue text-white border-transparent",
-    "shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_2px_4px_rgba(1,48,162,0.2)]",
-    "hover:bg-blue-light hover:-translate-y-0.5",
-    "hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_8px_28px_rgba(1,48,162,0.4)]",
+    "bg-gradient-to-r from-blue via-blue-light to-blue text-white border-transparent shimmer-btn",
+    "bg-[length:200%_auto] transition-all duration-300",
+    "shadow-[0_4px_20px_rgba(1,48,162,0.35)] dark:shadow-[0_4px_20px_rgba(59,130,246,0.35)]",
+    "hover:bg-[position:right_center] hover:-translate-y-0.5",
+    "hover:shadow-[0_8px_30px_rgba(1,48,162,0.5)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.5)]",
     "active:translate-y-0 active:shadow-none",
   ].join(" "),
   outline: [
-    "bg-transparent text-text-primary border-border",
-    "hover:border-blue/50 hover:text-blue hover:-translate-y-0.5",
-    "dark:hover:border-blue-light/40 dark:hover:text-blue-light",
-    "active:translate-y-0",
+    "bg-card-bg/60 backdrop-blur-sm text-text-primary border-border",
+    "hover:border-blue/50 hover:bg-blue/5 hover:text-blue hover:-translate-y-0.5",
+    "dark:border-white/10 dark:hover:border-blue-light/40 dark:hover:bg-blue/10 dark:hover:text-blue-light",
+    "shadow-sm active:translate-y-0",
   ].join(" "),
   white: [
-    "bg-white text-blue border-white",
-    "shadow-[0_2px_8px_rgba(0,0,0,0.1)]",
-    "hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)]",
+    "bg-white text-blue border-white shimmer-btn",
+    "shadow-[0_4px_16px_rgba(0,0,0,0.12)]",
+    "hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(0,0,0,0.22)]",
     "active:translate-y-0",
   ].join(" "),
   ghost: [
@@ -58,7 +59,7 @@ export function Button({
   disabled,
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-xl border font-semibold",
+    "relative inline-flex items-center justify-center gap-2 rounded-xl border font-semibold",
     "transition-all duration-200 whitespace-nowrap select-none",
     "disabled:opacity-50 disabled:pointer-events-none",
     variants[variant],

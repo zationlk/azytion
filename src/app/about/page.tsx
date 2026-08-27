@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowRight, Globe2, Layers, Rocket, Shield } from "lucide-react";
+import { AboutImage } from "@/components/ui/AboutImage";
 import { Button } from "@/components/ui/Button";
 import { DynamicIcon } from "@/components/ui/DynamicIcon";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -11,7 +12,7 @@ import { team, values } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about Azytion — our mission, values, and the team behind The Best Option in digital solutions.",
+  description: "Learn about Azytion - our mission, values, and the team behind The Best Option in digital solutions.",
 };
 
 function getRoleBadgeStyle(role: string): string {
@@ -29,7 +30,7 @@ function getRoleBadgeStyle(role: string): string {
 const milestones = [
   { year: "2019", title: "Founded", desc: "Azytion launched with a vision to make premium digital solutions accessible to all." },
   { year: "2020", title: "First 10 Clients", desc: "Rapidly grew to serve 10 clients across 4 countries in our first year." },
-  { year: "2022", title: "SaaS Launch", desc: "Launched our first SaaS products — POS, CRM and ERP systems deployed to 20+ businesses." },
+  { year: "2022", title: "SaaS Launch", desc: "Launched our first SaaS products - POS, CRM and ERP systems deployed to 20+ businesses." },
   { year: "2024", title: "150+ Projects", desc: "Crossed 150 delivered projects with a 99% client retention rate." },
 ];
 
@@ -54,21 +55,8 @@ export default function AboutPage() {
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <FadeIn>
               <div className="relative">
-                <div className="absolute -inset-4 rounded-[32px] bg-gradient-to-br from-blue/10 via-transparent to-blue-light/8 blur-2xl" />
-                <div className="relative overflow-hidden rounded-[24px] bg-gradient-to-br from-blue-dark via-blue to-blue-light p-px shadow-[0_24px_64px_rgba(1,48,162,0.22)]">
-                  <div className="flex aspect-[4/3] items-center justify-center rounded-[23px] bg-gradient-to-br from-blue-dark to-blue">
-                    <div
-                      className="absolute inset-0 rounded-[23px] opacity-[0.09]"
-                      style={{
-                        backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)",
-                        backgroundSize: "22px 22px",
-                      }}
-                    />
-                    <div className="absolute h-48 w-48 rounded-full bg-white/10 blur-3xl" />
-                    <span className="relative font-[family-name:var(--font-jakarta)] text-7xl font-black text-white/8 select-none">AZYTION</span>
-                  </div>
-                </div>
-                <div className="absolute -bottom-5 -right-4 rounded-2xl border border-card-border bg-card-bg px-6 py-5 text-center shadow-xl dark:shadow-black/40">
+                <AboutImage />
+                <div className="absolute -bottom-5 -right-4 rounded-2xl border border-card-border bg-card-bg px-6 py-5 text-center shadow-xl dark:shadow-black/40 z-10">
                   <strong className="block font-[family-name:var(--font-jakarta)] text-4xl font-extrabold text-blue dark:text-blue-light">5+</strong>
                   <span className="text-sm text-text-muted">Years of Excellence</span>
                 </div>
@@ -84,7 +72,7 @@ export default function AboutPage() {
                 Founded with a vision to make premium digital solutions accessible to businesses of all sizes, Azytion has grown into a trusted partner for companies worldwide.
               </p>
               <p className="mb-4 text-text-secondary">
-                Our name reflects our promise — we are{" "}
+                Our name reflects our promise - we are{" "}
                 <strong className="font-semibold text-text-primary">The Best Option</strong>{" "}
                 when it comes to software development, creative design, and ready-to-use SaaS products.
               </p>
@@ -107,7 +95,7 @@ export default function AboutPage() {
             centered
             label="Our Journey"
             title={<>Key <span className="text-gradient">Milestones</span></>}
-            description="From a small startup to a global digital solutions company — here's how we grew."
+            description="From a small startup to a global digital solutions company - here's how we grew."
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {milestones.map((m, index) => (
@@ -141,7 +129,7 @@ export default function AboutPage() {
               <FadeIn key={value.title} delay={index * 0.08}>
                 <article className="group relative overflow-hidden rounded-2xl border border-card-border bg-card-bg p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-blue/25 hover:shadow-[0_12px_40px_rgba(1,48,162,0.1)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)]">
                   <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-blue to-blue-light opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <span className="absolute right-5 top-4 font-[family-name:var(--font-jakarta)] text-[1.5rem] font-black leading-none text-text-primary/[0.05] select-none transition-colors group-hover:text-text-primary/[0.08]">
+                  <span className="absolute right-5 top-4 font-[family-name:var(--font-jakarta)] text-[1.5rem] font-extrabold leading-none text-blue/35 dark:text-blue-light/40 select-none transition-colors group-hover:text-blue">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-blue/15 bg-blue/8 text-blue transition-all group-hover:border-blue/30 group-hover:bg-blue/12 dark:border-blue-light/15 dark:bg-blue/10 dark:text-blue-light">
@@ -168,14 +156,14 @@ export default function AboutPage() {
                 title={<>What Makes <span className="text-gradient">Us Different</span></>}
               />
               <p className="mb-8 text-[1rem] leading-relaxed text-text-secondary">
-                We don&apos;t just build software — we build partnerships. Our collaborative process ensures that every solution we deliver is perfectly aligned with your business goals and designed to grow with you.
+                We don&apos;t just build software - we build partnerships. Our collaborative process ensures that every solution we deliver is perfectly aligned with your business goals and designed to grow with you.
               </p>
               <div className="space-y-4">
                 {[
                   { icon: Rocket, title: "Speed Without Compromise", desc: "Rapid delivery using proven frameworks and agile workflows, without cutting corners on quality." },
-                  { icon: Layers, title: "Full-Stack Expertise", desc: "From UI/UX design to backend architecture and cloud deployment — we handle it all in-house." },
+                  { icon: Layers, title: "Full-Stack Expertise", desc: "From UI/UX design to backend architecture and cloud deployment - we handle it all in-house." },
                   { icon: Shield, title: "Transparent & Honest", desc: "Fixed quotes, clear timelines, and proactive communication at every step of the project." },
-                  { icon: Globe2, title: "Built to Scale", desc: "Every solution is architected for growth — ready for enterprise scale from day one." },
+                  { icon: Globe2, title: "Built to Scale", desc: "Every solution is architected for growth - ready for enterprise scale from day one." },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex gap-4 rounded-xl border border-card-border bg-card-bg p-4 transition-colors hover:border-blue/20">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue/8 dark:bg-blue/12">
@@ -219,7 +207,7 @@ export default function AboutPage() {
             title={<>The People Behind <span className="text-gradient">Azytion</span></>}
             description="A talented team of developers, designers, and strategists dedicated to your success."
           />
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto max-w-3xl grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
             {team.map((member, index) => (
               <FadeIn key={member.name} delay={index * 0.1}>
                 <article className="group relative overflow-hidden rounded-2xl border border-card-border bg-card-bg p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-blue/25 hover:shadow-[0_12px_40px_rgba(1,48,162,0.1)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)]">

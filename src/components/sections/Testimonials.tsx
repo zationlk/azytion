@@ -24,7 +24,7 @@ export function Testimonials({ limit = 3 }: { limit?: number }) {
           centered
           label="Testimonials"
           title={<>What Our <span className="text-gradient">Clients Say</span></>}
-          description="Don't take our word for it — hear from the businesses we've helped transform."
+          description="Don't take our word for it - hear from the businesses we've helped transform."
         />
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

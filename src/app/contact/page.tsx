@@ -10,7 +10,7 @@ import { brand, faqItems } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact Azytion — Get in touch for software development, web design, SaaS products, and digital marketing services.",
+  description: "Contact Azytion - Get in touch for software development, web design, SaaS products, and digital marketing services.",
 };
 
 const contactMethods = [
@@ -28,15 +28,16 @@ const contactMethods = [
     content: `${brand.phone}\n${brand.phone2}`,
     href: `tel:${brand.phone.replace(/\s/g, "")}`,
     iconBg: "bg-emerald-500/8 border-emerald-500/15 text-emerald-600 dark:text-emerald-400 dark:border-emerald-400/15",
-    desc: "Mon–Fri, 9 AM – 6 PM",
+    desc: "Mon-Fri, 9 AM - 6 PM",
   },
   {
     icon: MessageCircle,
     title: "WhatsApp",
-    content: brand.phone,
+    content: `${brand.phone}\n${brand.phone2}`,
     href: brand.whatsapp,
+    href2: brand.whatsapp2,
     iconBg: "bg-emerald-500/8 border-emerald-500/15 text-emerald-600 dark:text-emerald-400 dark:border-emerald-400/15",
-    desc: "Chat with us on WhatsApp",
+    desc: "Chat with us on WhatsApp (24/7)",
   },
   {
     icon: MapPin,
@@ -49,7 +50,7 @@ const contactMethods = [
   {
     icon: Clock,
     title: "Business Hours",
-    content: "Mon – Fri: 9:00 AM – 6:00 PM\nSat: 10:00 AM – 2:00 PM",
+    content: "Mon - Fri: 9:00 AM - 6:00 PM\nSat: 10:00 AM - 2:00 PM",
     href: undefined,
     iconBg: "bg-violet-500/8 border-violet-500/15 text-violet-600 dark:text-violet-400 dark:border-violet-400/15",
     desc: "We're here when you need us",
@@ -81,14 +82,14 @@ export default function ContactPage() {
             <FadeIn>
               <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/8 px-4 py-2 text-[0.8125rem] font-semibold text-emerald-600 dark:text-emerald-400">
                 <Zap size={13} />
-                We respond within 24 hours — guaranteed
+                We respond within 24 hours - guaranteed
               </div>
 
               <h2 className="mb-3 font-[family-name:var(--font-jakarta)] text-3xl font-extrabold text-text-primary">
                 Let&apos;s Start a Conversation
               </h2>
               <p className="mb-8 text-[1rem] leading-relaxed text-text-secondary">
-                Whether you need a custom software solution, a stunning website, or want to deploy one of our SaaS products — we&apos;re here to help.
+                Whether you need a custom software solution, a stunning website, or want to deploy one of our SaaS products - we&apos;re here to help.
               </p>
 
               {/* Contact method cards */}
@@ -105,14 +106,34 @@ export default function ContactPage() {
                       <p className="mb-0.5 text-[0.8125rem] font-bold text-text-primary">{method.title}</p>
                       <p className="mb-1 text-[0.72rem] text-text-muted">{method.desc}</p>
                       {method.href ? (
-                        <a
-                          href={method.href}
-                          target={method.href.startsWith("http") ? "_blank" : undefined}
-                          rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                          className="block whitespace-pre-line text-[0.875rem] text-text-secondary transition hover:text-blue dark:hover:text-blue-light"
-                        >
-                          {method.content}
-                        </a>
+                        <div className="flex flex-col gap-0.5">
+                          <a
+                            href={method.href}
+                            target={method.href.startsWith("http") ? "_blank" : undefined}
+                            rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                            className="text-[0.875rem] text-text-secondary transition hover:text-blue dark:hover:text-blue-light"
+                          >
+                            {method.content.split("\n")[0]}
+                          </a>
+                          {method.href2 && (
+                            <a
+                              href={method.href2}
+                              target={method.href2.startsWith("http") ? "_blank" : undefined}
+                              rel={method.href2.startsWith("http") ? "noopener noreferrer" : undefined}
+                              className="text-[0.875rem] text-text-secondary transition hover:text-blue dark:hover:text-blue-light"
+                            >
+                              {method.content.split("\n")[1]}
+                            </a>
+                          )}
+                          {!method.href2 && method.content.includes("\n") && (
+                            <a
+                              href={`tel:${brand.phone2.replace(/\s/g, "")}`}
+                              className="text-[0.875rem] text-text-secondary transition hover:text-blue dark:hover:text-blue-light"
+                            >
+                              {method.content.split("\n")[1]}
+                            </a>
+                          )}
+                        </div>
                       ) : (
                         <p className="whitespace-pre-line text-[0.875rem] text-text-secondary">{method.content}</p>
                       )}
@@ -126,7 +147,7 @@ export default function ContactPage() {
                 <p className="mb-3 text-[0.8rem] font-bold uppercase tracking-wider text-text-muted">Why work with us?</p>
                 <div className="space-y-2">
                   {[
-                    "Free consultation — no strings attached",
+                    "Free consultation - no strings attached",
                     "Fixed-price quotes with no hidden fees",
                     "Dedicated project manager from day one",
                     "Post-launch support included",

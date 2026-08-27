@@ -82,7 +82,7 @@ export function Footer() {
                 Stay in the Loop
               </p>
               <p className="text-[0.8125rem] text-text-muted">
-                Product updates, tips &amp; industry insights — no spam.
+                Product updates, tips &amp; industry insights - no spam.
               </p>
             </div>
           </div>
@@ -97,25 +97,25 @@ export function Footer() {
           {/* Brand column */}
           <div>
             <Logo className="mb-5" />
-            <p className="mb-5 max-w-[260px] text-[0.9rem] leading-relaxed text-text-muted">
+            <p className="mb-5 max-w-[260px] text-[0.9rem] leading-relaxed text-text-secondary">
               {brand.tagline} for digital solutions. We build software, design experiences, and power modern businesses with SaaS.
             </p>
 
             {/* Contact info */}
             <div className="mb-6 space-y-2.5">
-              <div className="flex items-center gap-2.5 text-[0.85rem] text-text-muted">
-                <Mail size={13} className="shrink-0" />
-                <a href={`mailto:${brand.email}`} className="transition hover:text-text-primary">{brand.email}</a>
+              <div className="flex items-center gap-2.5 text-[0.85rem] text-text-secondary">
+                <Mail size={13} className="shrink-0 text-blue dark:text-blue-light" />
+                <a href={`mailto:${brand.email}`} className="transition hover:text-blue dark:hover:text-blue-light font-medium">{brand.email}</a>
               </div>
-              <div className="flex items-center gap-2.5 text-[0.85rem] text-text-muted">
-                <Phone size={13} className="shrink-0" />
+              <div className="flex items-center gap-2.5 text-[0.85rem] text-text-secondary">
+                <Phone size={13} className="shrink-0 text-blue dark:text-blue-light" />
                 <div className="flex flex-col gap-0.5">
-                  <a href={`tel:${brand.phone.replace(/\s/g, "")}`} className="transition hover:text-text-primary">{brand.phone}</a>
-                  <a href={`tel:${brand.phone2.replace(/\s/g, "")}`} className="transition hover:text-text-primary">{brand.phone2}</a>
+                  <a href={`tel:${brand.phone.replace(/\s/g, "")}`} className="transition hover:text-blue dark:hover:text-blue-light font-medium">{brand.phone}</a>
+                  <a href={`tel:${brand.phone2.replace(/\s/g, "")}`} className="transition hover:text-blue dark:hover:text-blue-light font-medium">{brand.phone2}</a>
                 </div>
               </div>
-              <div className="flex items-start gap-2.5 text-[0.85rem] text-text-muted">
-                <MapPin size={13} className="mt-0.5 shrink-0" />
+              <div className="flex items-start gap-2.5 text-[0.85rem] text-text-secondary">
+                <MapPin size={13} className="mt-0.5 shrink-0 text-blue dark:text-blue-light" />
                 <div className="flex flex-col gap-0.5">
                   <span>{brand.address}</span>
                   <span>{brand.address2}</span>
@@ -132,7 +132,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-border text-text-muted transition-all hover:border-blue/35 hover:bg-blue/6 hover:text-blue dark:hover:border-blue-light/25 dark:hover:bg-blue/8 dark:hover:text-blue-light"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-border text-text-secondary transition-all hover:border-blue/35 hover:bg-blue/6 hover:text-blue dark:border-white/10 dark:hover:border-blue-light/25 dark:hover:bg-blue/8 dark:hover:text-blue-light"
                 >
                   <Icon />
                 </a>
@@ -151,7 +151,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="group flex items-center gap-2 text-[0.9rem] text-text-muted transition-colors hover:text-text-primary"
+                      className="group flex items-center gap-2 text-[0.9rem] text-text-secondary transition-colors hover:text-text-primary"
                     >
                       <span className="h-px w-3 shrink-0 rounded-full bg-border transition-all duration-200 group-hover:w-4 group-hover:bg-blue dark:group-hover:bg-blue-light" />
                       {link.label}
@@ -170,7 +170,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-3 pt-6 text-[0.82rem] text-text-muted md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-3 pt-6 text-[0.82rem] text-text-secondary md:flex-row">
           <span>&copy; {new Date().getFullYear()} {brand.name}. All rights reserved.</span>
           <div className="flex items-center gap-5">
             <Link href="/privacy" className="transition hover:text-text-primary">Privacy Policy</Link>
