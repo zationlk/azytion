@@ -47,10 +47,10 @@ export function Hero() {
       {/* ── Rich Background & Orbs ─────────────────────────────────── */}
       <div className="pointer-events-none absolute inset-0 select-none">
         {/* Top Right Primary Orb */}
-        <div className="absolute -right-32 -top-32 h-[720px] w-[720px] animate-glow-pulse rounded-full opacity-70"
+        <div className="absolute -right-32 -top-32 hidden h-[720px] w-[720px] animate-glow-pulse rounded-full opacity-70 md:block"
           style={{ background: "radial-gradient(circle, rgba(1,48,162,0.18) 0%, rgba(26,79,212,0.08) 45%, transparent 70%)" }} />
         {/* Bottom Left Secondary Orb */}
-        <div className="absolute -bottom-40 -left-32 h-[640px] w-[640px] animate-glow-pulse rounded-full opacity-60"
+        <div className="absolute -bottom-40 -left-32 hidden h-[640px] w-[640px] animate-glow-pulse rounded-full opacity-60 md:block"
           style={{ background: "radial-gradient(circle, rgba(26,79,212,0.15) 0%, rgba(1,48,162,0.05) 45%, transparent 70%)", animationDelay: "2.2s" }} />
 
         {/* Radial Mesh Overlay */}
@@ -60,9 +60,9 @@ export function Hero() {
           maskImage: "radial-gradient(ellipse 90% 80% at 50% 40%, black 20%, transparent 85%)",
         }} />
 
-        {/* Dark mode glow enhancements */}
-        <div className="absolute -right-24 -top-24 hidden h-[680px] w-[680px] rounded-full bg-blue/[0.18] blur-[140px] dark:block" />
-        <div className="absolute -bottom-20 -left-24 hidden h-[580px] w-[580px] rounded-full bg-blue-light/[0.14] blur-[120px] dark:block" />
+        {/* Dark mode glow enhancements - desktop optimized */}
+        <div className="absolute -right-24 -top-24 hidden h-[680px] w-[680px] rounded-full bg-blue/[0.18] blur-[100px] md:dark:block" />
+        <div className="absolute -bottom-20 -left-24 hidden h-[580px] w-[580px] rounded-full bg-blue-light/[0.14] blur-[90px] md:dark:block" />
       </div>
 
       {/* ── Floating tech pills ─────────────────────────────────── */}

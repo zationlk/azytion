@@ -49,8 +49,8 @@ export function TechStackMatrix() {
 
   return (
     <section className="py-24 bg-bg-subtle relative overflow-hidden">
-      {/* Ambient glow */}
-      <div className="pointer-events-none absolute -right-32 top-1/4 h-96 w-96 rounded-full bg-blue/10 blur-[120px] dark:bg-blue-light/10" />
+      {/* Ambient glow - desktop optimized */}
+      <div className="pointer-events-none absolute -right-32 top-1/4 hidden h-96 w-96 rounded-full bg-blue/10 blur-3xl sm:block dark:bg-blue-light/10" />
 
       <div className="mx-auto max-w-6xl px-5 lg:px-8 relative z-10">
         <SectionHeader
