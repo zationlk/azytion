@@ -41,7 +41,7 @@ const techStackData: TechItem[] = [
 ];
 
 export function TechStackMatrix() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [activeCategory, setActiveCategory] = useState<string>("web");
 
   const filtered = activeCategory === "all"
     ? techStackData
@@ -60,10 +60,9 @@ export function TechStackMatrix() {
           description="Software, tools, and creative suites we use across all 6 of our core digital services."
         />
 
-        {/* Category Filter Tabs */}
+        {/* Category Filter Tabs — "All Technologies" removed */}
         <div className="mb-10 flex flex-wrap justify-center gap-2">
           {[
-            { id: "all", label: "All Technologies" },
             { id: "web", label: "Web & Software" },
             { id: "design", label: "Graphic Design" },
             { id: "video", label: "Video Editing" },
@@ -86,7 +85,7 @@ export function TechStackMatrix() {
         </div>
 
         {/* 4 Cards per Row Grid */}
-        <div className="grid gap-4.5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4.5 grid-cols-2 lg:grid-cols-4">
           {filtered.map((tech, index) => {
             const IconComp = tech.icon;
             return (

@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { ArrowRight, ChevronDown, Menu, Search, X } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 import { ProductsMegaMenu, ServicesMegaMenu } from "@/components/layout/NavbarMegaMenu";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { Button } from "@/components/ui/Button";
 import { SearchModal } from "@/components/ui/SearchModal";
 import { navLinks } from "@/lib/data";
@@ -139,7 +138,7 @@ export function Navbar() {
               })}
             </div>
 
-            {/* Actions: Search, Theme Toggle, CTA */}
+            {/* Actions: Search, CTA */}
             <div className="hidden items-center gap-2.5 md:flex">
               {/* Search Trigger */}
               <button
@@ -155,7 +154,6 @@ export function Navbar() {
                 </kbd>
               </button>
 
-              <ThemeToggle />
               <Button href="/contact" size="sm" className="min-w-[110px]">
                 Get Started
                 <ArrowRight size={14} />
@@ -172,7 +170,6 @@ export function Navbar() {
               >
                 <Search size={16} />
               </button>
-              <ThemeToggle />
               <button
                 type="button"
                 aria-label="Toggle menu"

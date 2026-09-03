@@ -46,6 +46,7 @@ export const clients = [
   "OCEAN LIGHTING SOLUTIONS",
   "USGEMS",
   "NEW ROCK CITY",
+  "PROPERTY LANKA",
   "ZUHARA",
   "ROYAL PROPERTY",
 ] as const;
