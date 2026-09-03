@@ -40,7 +40,7 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* ── Trusted by ─────────────────────────────────────────── */}
+      {/* ── Trusted by — full carousel, all screen sizes ─────────── */}
       <section className="border-y border-border bg-bg-subtle py-10">
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <FadeIn>
@@ -48,33 +48,23 @@ export default function HomePage() {
               Trusted by leading companies worldwide
             </p>
           </FadeIn>
-          {/* Mobile marquee */}
-          <div className="relative overflow-hidden md:hidden">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-14 bg-gradient-to-r from-bg-subtle to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-gradient-to-l from-bg-subtle to-transparent" />
-            <div className="flex animate-marquee gap-12 whitespace-nowrap">
-              {[...clients, ...clients].map((client, i) => (
-                <span key={`${client}-${i}`} className="font-[family-name:var(--font-jakarta)] text-sm font-extrabold uppercase tracking-wider text-text-secondary/85 dark:text-text-secondary">
+          {/* Continuous single-line marquee — all sizes */}
+          <div className="relative overflow-hidden">
+            {/* Left/right fade masks */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-bg-subtle to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-bg-subtle to-transparent" />
+            {/* Marquee track — duplicate for seamless loop */}
+            <div className="flex animate-marquee whitespace-nowrap">
+              {[...clients, ...clients, ...clients].map((client, i) => (
+                <span
+                  key={`${client}-${i}`}
+                  className="mx-6 inline-flex shrink-0 items-center rounded-full border border-card-border bg-card-bg/60 px-6 py-2.5 font-[family-name:var(--font-jakarta)] text-sm font-extrabold uppercase tracking-wider text-text-primary shadow-sm backdrop-blur-sm"
+                >
                   {client}
                 </span>
               ))}
             </div>
           </div>
-          {/* Desktop */}
-          <FadeIn>
-            <div className="hidden flex-wrap items-center justify-center gap-4 md:flex">
-              {clients.map((client, index) => (
-                <div key={client} className="flex items-center gap-4">
-                  <span className="rounded-full border border-card-border bg-card-bg/60 px-5 py-2 font-[family-name:var(--font-jakarta)] text-xs lg:text-sm font-extrabold uppercase tracking-wider text-text-primary shadow-sm backdrop-blur-sm transition-all duration-200 hover:border-blue/30 hover:text-blue hover:scale-105 dark:border-white/10 dark:hover:border-blue-light/30 dark:hover:text-blue-light">
-                    {client}
-                  </span>
-                  {index < clients.length - 1 && (
-                    <span className="h-4 w-px bg-border/80 dark:bg-white/10" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </FadeIn>
         </div>
       </section>
 

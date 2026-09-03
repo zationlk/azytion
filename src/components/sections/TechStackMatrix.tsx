@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Boxes, Code2, Cpu, Database, Globe2, Layers, Megaphone, Palette, Server, ShieldCheck, Sparkles, Video } from "lucide-react";
-import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 interface TechItem {
@@ -84,30 +83,41 @@ export function TechStackMatrix() {
           ))}
         </div>
 
-        {/* 4 Cards per Row Grid */}
-        <div className="grid gap-4.5 grid-cols-2 lg:grid-cols-4">
-          {filtered.map((tech, index) => {
-            const IconComp = tech.icon;
-            return (
-              <FadeIn key={tech.name} delay={index * 0.03}>
-                <div className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-card-border bg-card-bg p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-blue/30 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] dark:border-white/10 dark:hover:shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
+        {/* Cards carousel — all in one scrolling line */}
+        <div className="relative overflow-hidden">
+          {/* Fade masks */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-bg-subtle to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-bg-subtle to-transparent" />
+
+          {/* Scrolling track — duplicated for seamless loop */}
+          <div
+            className="flex animate-marquee gap-4 whitespace-nowrap"
+            style={{ animationDuration: "40s" }}
+          >
+            {[...filtered, ...filtered].map((tech, index) => {
+              const IconComp = tech.icon;
+              return (
+                <div
+                  key={`${tech.name}-${index}`}
+                  className="group relative inline-flex w-64 shrink-0 flex-col justify-between overflow-hidden rounded-2xl border border-card-border bg-card-bg p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-blue/30 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] dark:border-white/10 dark:hover:shadow-[0_16px_40px_rgba(0,0,0,0.4)]"
+                >
                   {/* Top glowing stripe on hover */}
                   <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue via-blue-light to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                   <div>
-                    <div className="flex items-start justify-between mb-3">
+                    <div className="mb-3 flex items-start justify-between">
                       <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-blue/15 bg-blue/8 text-blue transition-transform duration-300 group-hover:scale-110 dark:border-blue-light/20 dark:bg-blue/12 dark:text-blue-light">
                         <IconComp size={20} />
                       </div>
-                      <span className="rounded-full bg-blue/8 px-2.5 py-0.5 text-[0.68rem] font-bold text-blue dark:bg-blue/15 dark:text-blue-light truncate max-w-[130px]">
+                      <span className="max-w-[130px] truncate rounded-full bg-blue/8 px-2.5 py-0.5 text-[0.68rem] font-bold text-blue dark:bg-blue/15 dark:text-blue-light">
                         {tech.serviceName}
                       </span>
                     </div>
 
-                    <h4 className="font-[family-name:var(--font-jakarta)] text-[0.9375rem] font-bold text-text-primary group-hover:text-blue dark:group-hover:text-blue-light transition-colors">
+                    <h4 className="whitespace-normal font-[family-name:var(--font-jakarta)] text-[0.9375rem] font-bold text-text-primary transition-colors group-hover:text-blue dark:group-hover:text-blue-light">
                       {tech.name}
                     </h4>
-                    <p className="mt-0.5 text-[0.78rem] text-text-muted">
+                    <p className="mt-0.5 whitespace-normal text-[0.78rem] text-text-muted">
                       {tech.badge}
                     </p>
                   </div>
@@ -119,9 +129,9 @@ export function TechStackMatrix() {
                     </span>
                   </div>
                 </div>
-              </FadeIn>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

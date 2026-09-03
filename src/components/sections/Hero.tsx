@@ -16,15 +16,6 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { stats } from "@/lib/data";
 
-const techPills = [
-  { label: "React", color: "text-cyan-600 dark:text-cyan-400 border-cyan-500/25 bg-cyan-500/10" },
-  { label: "Next.js 16", color: "text-text-primary border-border bg-card-bg/80" },
-  { label: "Node.js", color: "text-emerald-600 dark:text-emerald-400 border-emerald-500/25 bg-emerald-500/10" },
-  { label: "TypeScript", color: "text-blue border-blue/25 bg-blue/10 dark:text-blue-light dark:border-blue-light/25" },
-  { label: "AWS Cloud", color: "text-amber-600 dark:text-amber-400 border-amber-500/25 bg-amber-500/10" },
-  { label: "Flutter App", color: "text-sky-600 dark:text-sky-400 border-sky-500/25 bg-sky-500/10" },
-];
-
 const offerings = [
   { icon: Code2, label: "Software Development", desc: "Web, mobile & cloud apps", color: "text-blue dark:text-blue-light", bg: "bg-blue/10 dark:bg-blue/15" },
   { icon: Monitor, label: "Website Design", desc: "High-converting UX/UI", color: "text-violet-600 dark:text-violet-400", bg: "bg-violet-500/10" },
@@ -65,24 +56,9 @@ export function Hero() {
         <div className="absolute -bottom-20 -left-24 hidden h-[580px] w-[580px] rounded-full bg-blue-light/[0.14] blur-[90px] md:dark:block" />
       </div>
 
-      {/* ── Floating tech pills ─────────────────────────────────── */}
-      <div className="pointer-events-none absolute inset-0 select-none overflow-hidden">
-        {[
-          { pill: techPills[0], pos: "left-[4%] top-[20%]", delay: "0s", anim: "animate-float" },
-          { pill: techPills[2], pos: "left-[2%] top-[44%]", delay: "1.2s", anim: "animate-float-slow" },
-          { pill: techPills[4], pos: "left-[5%] top-[66%]", delay: "2.4s", anim: "animate-float" },
-          { pill: techPills[3], pos: "right-[4%] top-[26%]", delay: "0.8s", anim: "animate-float-delayed" },
-          { pill: techPills[5], pos: "right-[5%] top-[52%]", delay: "1.8s", anim: "animate-float-slow" },
-          { pill: techPills[1], pos: "right-[3%] top-[72%]", delay: "3s", anim: "animate-float" },
-        ].map(({ pill, pos, delay, anim }) => (
-          <div key={pill.label} className={`absolute ${pos} ${anim} hidden xl:block`} style={{ animationDelay: delay }}>
-            <span className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-[0.75rem] font-bold shadow-md backdrop-blur-md ${pill.color}`}>
-              <span className="h-2 w-2 rounded-full bg-current animate-pulse" />
-              {pill.label}
-            </span>
-          </div>
-        ))}
-      </div>
+      {/* ── Floating tech pills removed ──────────────────────── */}
+
+
 
       {/* ── Main Hero Content ────────────────────────────────────── */}
       <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pt-4 pb-14 sm:py-16 lg:py-20 lg:px-8">
