@@ -176,7 +176,19 @@ body {
 .animate-glow-pulse   { animation: glow-pulse 4.5s ease-in-out infinite; }
 .animate-spin-slow    { animation: spin-slow 20s linear infinite; }
 .animate-spin-medium  { animation: spin-medium 10s linear infinite; }
-.animate-marquee      { animation: marquee 22s linear infinite; }
+
+/*
+ * .animate-marquee — duration intentionally NOT set here so that
+ * the inline style={{ animationDuration }} on each element wins
+ * on all browsers including mobile Safari/Chrome.
+ */
+.animate-marquee {
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 14s; /* fallback if no inline style */
+}
+
 .animate-morph        { animation: morph 8s ease-in-out infinite; }
 .animate-bob          { animation: bob 3s ease-in-out infinite; }
 .animate-diagonal     { animation: diagonal-drift 6s ease-in-out infinite; }
